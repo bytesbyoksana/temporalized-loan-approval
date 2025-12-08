@@ -95,6 +95,7 @@ Get the application running in a few minutes.
 
 - Python 3.8+
 - pip (Python package manager)
+- The Homebrew Package Manager on macOS. For more information, go to [https://brew.sh/](https://brew.sh/).
 
 ### Install Temporal CLI
 
