@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        {% if error %}
+            <div class="result-card error">
+                <h2>⚠️ Error</h2>
+                <p>{{ error }}</p>
+                <a href="/" class="btn-secondary">Go Back</a>
+            </div>
+        {% elif contact_message %}
+            <div class="result-card success">
+                <h2>{{ contact_message.title }}</h2>
+                <p>{{ contact_message.message }}</p>
+                <a href="/" class="btn-primary">Submit Another Application</a>
+            </div>
+        {% elif decision %}
+            <div class="result-card {{ decision.decision }}">
+                <h2>{{ decision.title }}</h2>
+                <p class="message">{{ decision.message }}</p>
+                <p class="next-steps">{{ decision.next_steps }}</p>
+
+                <div class="contact-preference">
+                    <h3>Would you like an agent to contact you?</h3>
+                    <form action="/contact" method="POST">
+                        <input type="hidden" name="email" value="{{ application.email }}">
+                        <div class="button-group">
+                            <button type="submit" name="preference" value="yes" class="btn-primary">Yes, Contact Me</button>
+                            <button type="submit" name="preference" value="no" class="btn-secondary">Not Yet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+
+        <footer>
+            <p><a href="/">← Back to Application</a></p>
+        </footer>
+    </div>
+</body>
+</html>

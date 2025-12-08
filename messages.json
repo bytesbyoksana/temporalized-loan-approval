@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "decisions": {
+    "pre_approved": {
+      "title": "Great News! You May Be Pre-Approved",
+      "message": "Based on the information you provided, you may qualify for pre-approval for your requested loan amount of ${loan_amount}. This is an exciting first step!",
+      "next_steps": "An agent can contact you to finalize your application and discuss the next steps."
+    },
+    "conditional": {
+      "title": "We'd Like to Learn More",
+      "message": "Thank you for your interest in a loan of ${loan_amount}. Based on your financial profile, we'd like to review additional information with you to explore your options.",
+      "next_steps": "One of our experienced loan specialists can contact you to discuss alternative loan amounts or gather additional details that may help with your application."
+    },
+    "denied": {
+      "title": "Thank You for Your Interest",
+      "message": "Based on the information provided, the requested loan amount of ${loan_amount} exceeds what is typically approved for similar financial profiles at this time.",
+      "next_steps": "We encourage you to speak with one of our agents who can discuss other options that might be a better fit for your current situation."
+    },
+    "denied_compliance": {
+      "title": "Unable to Process Request",
+      "message": "We're unable to process your loan request at this time due to our lending guidelines. The requested amount or credit profile falls outside our current approval criteria.",
+      "next_steps": "Please consider reaching out to one of our agents to discuss alternative financial solutions."
+    }
+  },
+  "contact_preference": {
+    "yes": {
+      "title": "Thank You!",
+      "message": "Your information has been submitted. One of our agents will contact you within 1-2 business days at {email}."
+    },
+    "no": {
+      "title": "Thank You for Your Time",
+      "message": "We appreciate your interest. If you change your mind, feel free to submit another application anytime."
+    }
+  },
+  "errors": {
+    "missing_fields": "Please fill out all required fields.",
+    "invalid_email": "Please provide a valid email address.",
+    "invalid_credit_score": "Credit score must be between 300 and 850.",
+    "invalid_loan_amount": "Loan amount must be greater than $0.",
+    "invalid_income": "Annual income must be greater than $0.",
+    "system_error": "We're experiencing technical difficulties. Please try again later."
+  }
+}

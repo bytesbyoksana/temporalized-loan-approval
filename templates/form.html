@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Pre-Approval Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Loan Pre-Approval Application</h1>
+            <p class="subtitle">Find out if you qualify in minutes</p>
+        </header>
+
+        {% if error %}
+        <div class="error-message">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <form action="/submit" method="POST" class="loan-form">
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" value="{{ name or '' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" value="{{ email or '' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loan_amount">Requested Loan Amount ($) *</label>
+                <input type="text" id="loan_amount" name="loan_amount" value="{{ loan_amount or '' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="annual_income">Annual Income ($) *</label>
+                <input type="text" id="annual_income" name="annual_income" value="{{ annual_income or '' }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="credit_score">Credit Score *</label>
+                <input type="text" id="credit_score" name="credit_score" value="{{ credit_score or '' }}" required>
+                <small>Enter a score between 300 and 850</small>
+            </div>
+
+            <div class="form-group">
+                <label>Have you filed for bankruptcy in the past 7 years? *</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="has_bankruptcy" value="no" {% if not has_bankruptcy or has_bankruptcy == 'no' %}checked{% endif %}> No
+                    </label>
+                    <label>
+                        <input type="radio" name="has_bankruptcy" value="yes" {% if has_bankruptcy == 'yes' %}checked{% endif %}> Yes
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-primary">Submit Application</button>
+        </form>
+    </div>
+
+    <script>
+        // Format numbers with commas as user types
+        function formatNumber(input) {
+            let value = input.value.replace(/,/g, '');
+            if (value && !isNaN(value)) {
+                input.value = Number(value).toLocaleString('en-US');
+            }
+        }
+
+        // Remove formatting before form submission
+        document.querySelector('.loan-form').addEventListener('submit', function(e) {
+            document.getElementById('loan_amount').value = document.getElementById('loan_amount').value.replace(/,/g, '');
+            document.getElementById('annual_income').value = document.getElementById('annual_income').value.replace(/,/g, '');
+        });
+
+        // Add formatting on blur
+        document.getElementById('loan_amount').addEventListener('blur', function() {
+            formatNumber(this);
+        });
+        document.getElementById('annual_income').addEventListener('blur', function() {
+            formatNumber(this);
+        });
+    </script>
+</body>
+</html>

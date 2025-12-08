@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "credit_score_brackets": {
+    "pre_approved_min": 720,
+    "conditional_min": 680,
+    "denied_max": 679
+  },
+  "loan_to_income_ratio": {
+    "max_ratio": 0.4,
+    "conditional_ratio": 0.35
+  },
+  "bankruptcy_rules": {
+    "recent_bankruptcy_action": "conditional",
+    "bankruptcy_with_low_credit": "denied"
+  },
+  "compliance": {
+    "minimum_credit_score": 600,
+    "maximum_loan_amount": 500000,
+    "required_fields": ["name", "email", "loan_amount", "credit_score", "annual_income", "has_bankruptcy"]
+  },
+  "decision_matrix": {
+    "pre_approved": {
+      "credit_score_min": 720,
+      "bankruptcy": false,
+      "loan_to_income_max": 0.4
+    },
+    "conditional": {
+      "credit_score_min": 680,
+      "credit_score_max": 719,
+      "bankruptcy": "any",
+      "loan_to_income_max": 0.5
+    },
+    "conditional_bankruptcy": {
+      "credit_score_min": 720,
+      "bankruptcy": true
+    },
+    "denied": {
+      "credit_score_max": 679,
+      "loan_to_income_min": 0.5
+    }
+  }
+}
