@@ -94,7 +94,6 @@ Get the application running in a few minutes.
 ### Prerequisites
 
 - Python 3.8+
-- Temporal CLI installed
 - pip (Python package manager)
 
 ### Install Temporal CLI
