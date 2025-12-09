@@ -110,20 +110,36 @@ brew install temporal
 curl -sSf https://temporal.download/cli.sh | sh
 ```
 
+### Download the sample loan pre-approval application
+
+Download the sample application code from this repository.
+
+1. In the Terminal, go to your desired directory and clone the application. You can clone the application with the HTTPS method by using the following command:
+
+   ```bash
+   git clone https://github.com/bytesbyoksana/temporalized-loan-approval.git
+   ```
+
+1. Navigate to the project.
+
+   ```bash
+   cd temporalized-loan-approval
+   ```
+
 ### Setup the environment
 
-```bash
-# 1. Navigate to project
-cd temporalized-loan-approval
+1. Create virtual environment:
 
-# 2. Create virtual environment
-python3 -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # Windows: venv\Scripts\activate
+   ```
 
-# 3. Install dependencies
-pip install -r requirements.txt
-pip install "Flask[async]"
-```
+1. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ### Run an application with Temporal
 
