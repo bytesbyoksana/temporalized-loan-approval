@@ -129,7 +129,7 @@ pip install "Flask[async]"
 
 1. You'll need 3 Terminal windows.
 
-   - Terminal 1: Start the Temporal service in the terminal where you activate the Python environment.
+   - Terminal 1: In the open terminal where you activated the Python environment, start the Temporal service.
 
       ```bash
       temporal server start-dev
